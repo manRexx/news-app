@@ -51,38 +51,42 @@ class _HomeState extends State<Home> {
         child: Container(
           child: CircularProgressIndicator(),
         ),
-      ) : Container(
-        child: Column(
-          children: [
-            /// Categories
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 60.0),
-              height: 70.0,
-              child: ListView.builder(
-                  itemCount:categories.length,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index){
-                    return CategoryTile(
-                      imageUrl: categories[index].imageUrl,
-                      categoryName: categories[index].categoryName,
-                    );
-                  }),
-            ),
-            /// Blogs
-            Container(
-              child: ListView.builder(
-                  itemCount:articles.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context,index){
-                    return BlogTile(
-                      imageUrl: articles[index].urlToImage,
-                      title: articles[index].title,
-                      desc: articles[index].description,
-                    );
-                  }),
-            )
-          ],
+      ) : SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              /// Categories
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 60.0),
+                height: 70.0,
+                child: ListView.builder(
+                    itemCount:categories.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index){
+                      return CategoryTile(
+                        imageUrl: categories[index].imageUrl,
+                        categoryName: categories[index].categoryName,
+                      );
+                    }),
+              ),
+              /// Blogs
+              SingleChildScrollView(
+                child: Container(
+                  child: ListView.builder(
+                      itemCount:articles.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context,index){
+                        return BlogTile(
+                          imageUrl: articles[index].urlToImage,
+                          title: articles[index].title,
+                          desc: articles[index].description,
+                        );
+                      }),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
