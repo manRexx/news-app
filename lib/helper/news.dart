@@ -8,7 +8,7 @@ class News{
   List<ArticleModel> news=[];
 
   Future<void> getNews() async{
-    String url="http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=d022770aa0974185a5c2fc7ad267357d";
+    String url="http://newsapi.org/v2/top-headlines?country=in&apiKey=d022770aa0974185a5c2fc7ad267357d";
 
     var response=await http.get(url);
 
@@ -32,12 +32,12 @@ class News{
   }
 }
 
-class CategoryNews{
+class CategoryNewsClass{
 
   List<ArticleModel> news=[];
 
   Future<void> getNews(String category) async{
-    String url="http://newsapi.org/v2/top-headlines?category=$category&country=in&category=business&apiKey=d022770aa0974185a5c2fc7ad267357d";
+    String url="http://newsapi.org/v2/top-headlines?country=in&category=$category&apiKey=d022770aa0974185a5c2fc7ad267357d";
 
     var response=await http.get(url);
 
