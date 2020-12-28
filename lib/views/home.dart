@@ -56,12 +56,11 @@ class _HomeState extends State<Home> {
         ),
       ) : SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: <Widget>[
               /// Categories
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 60.0),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 height: 70.0,
                 child: ListView.builder(
                     itemCount:categories.length,
@@ -76,7 +75,9 @@ class _HomeState extends State<Home> {
               ),
               /// Blogs
               Container(
-                padding: EdgeInsets.only(top: 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                // padding: EdgeInsets.symmetric(horizontal: 16.0),
+                // padding: EdgeInsets.only(top: 16.0),
                 child: ListView.builder(
                     itemCount:articles.length,
                     shrinkWrap: true,
